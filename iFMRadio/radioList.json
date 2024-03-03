@@ -1,0 +1,28 @@
+{
+  "radios": [
+  {
+    "id": 0,
+    "image": "flaixFM",  
+    "title": "FlaixFM",
+    "url": "https://nodo05-cloud01.streaming-pro.com:8001/flaixfm.mp3"
+  },
+   {
+     "id": 1,
+    "image": "flaixbac",  
+    "title": "Flaixbac",
+    "url": "https://nodo07-cloud01.streaming-pro.com:8005/flaixbac.mp3"
+  },
+   {
+    "id": 2,
+    "title": "Radiolé",
+    "image": "radiole",  
+    "url": "https://22333.live.streamtheworld.com/RADIOLEAAC.aac?csegid=12000&gdpr=1&gdpr_consent=CP65WcAP65WcAAHABBENApEsAP_gAAAAAAAAg1NX_H__bX9r8Xr36ft0eY1f99j77sQxBhfJk-4FzLvW_JwX32EzNA36tqYKmRIEu3bBIQFlHJDUTVigaogVrzDMakWcgTNKJ6BkiFMRc2dYCF5vmQtj-QKY5vp_d3d52T-9_dv83dzyz8Vnv3e5_-e1eJCdA58tDfv_bROb-9IP9_58v4v0_N_rk2_eT1l_tevp7B-uft-7_XV-9_fff7wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAxKADAAEQaikAGAAIg1DoAMAARBqIQAYAAiDUEgAwABEGotABgACINQAAA.f_wAAAAAAAAA&dist=radiole-web-live_streaming_play&tdsdk=js-2.9&swm=false&pname=TDSdk&pversion=2.9&banners=300x250&burst-time=15&sbmid=10d5227b-c456-4ba4-8771-90cf5743f914"
+  },
+  {
+    "id": 3,
+    "title": "Rock FM",
+    "image": "rockfm",  
+    "url": "https://rockfm-cope-rrcast.flumotion.com/cope/rockfm-low.mp3"
+  }
+  ]
+}

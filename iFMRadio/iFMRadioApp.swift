@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct iFMRadioApp: App {
+    @ObservedObject var radioListViewModel = RadioListViewModel()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RadioListView(radioViewModel: radioListViewModel)
         }
     }
 }

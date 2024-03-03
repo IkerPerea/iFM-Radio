@@ -7,18 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E50EF8492B93C1E300B23E4C /* AudioStreaming in Frameworks */ = {isa = PBXBuildFile; productRef = E50EF8482B93C1E300B23E4C /* AudioStreaming */; };
+		E50EF84E2B94AF7400B23E4C /* MusicPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50EF84D2B94AF7400B23E4C /* MusicPlayerView.swift */; };
+		E50EF8502B94CA5900B23E4C /* TimerSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50EF84F2B94CA5900B23E4C /* TimerSheetView.swift */; };
+		E50EF8522B951CC700B23E4C /* radioList.json in Resources */ = {isa = PBXBuildFile; fileRef = E50EF8512B951CC700B23E4C /* radioList.json */; };
 		E5F8C7CF2B93AF8500516FC8 /* iFMRadioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F8C7CE2B93AF8500516FC8 /* iFMRadioApp.swift */; };
-		E5F8C7D12B93AF8500516FC8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F8C7D02B93AF8500516FC8 /* ContentView.swift */; };
+		E5F8C7D12B93AF8500516FC8 /* RadioListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F8C7D02B93AF8500516FC8 /* RadioListView.swift */; };
 		E5F8C7D32B93AF8700516FC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5F8C7D22B93AF8700516FC8 /* Assets.xcassets */; };
 		E5F8C7D62B93AF8700516FC8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5F8C7D52B93AF8700516FC8 /* Preview Assets.xcassets */; };
+		E5F8C7DF2B93B38B00516FC8 /* RadioListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F8C7DE2B93B38B00516FC8 /* RadioListViewModel.swift */; };
+		E5F8C7E22B93B65B00516FC8 /* RadioListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F8C7E12B93B65B00516FC8 /* RadioListModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E50EF84A2B93E5A800B23E4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E50EF84D2B94AF7400B23E4C /* MusicPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerView.swift; sourceTree = "<group>"; };
+		E50EF84F2B94CA5900B23E4C /* TimerSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerSheetView.swift; sourceTree = "<group>"; };
+		E50EF8512B951CC700B23E4C /* radioList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = radioList.json; sourceTree = "<group>"; };
 		E5F8C7CB2B93AF8400516FC8 /* iFMRadio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iFMRadio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5F8C7CE2B93AF8500516FC8 /* iFMRadioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iFMRadioApp.swift; sourceTree = "<group>"; };
-		E5F8C7D02B93AF8500516FC8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E5F8C7D02B93AF8500516FC8 /* RadioListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioListView.swift; sourceTree = "<group>"; };
 		E5F8C7D22B93AF8700516FC8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E5F8C7D52B93AF8700516FC8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E5F8C7DE2B93B38B00516FC8 /* RadioListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioListViewModel.swift; sourceTree = "<group>"; };
+		E5F8C7E12B93B65B00516FC8 /* RadioListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioListModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E50EF8492B93C1E300B23E4C /* AudioStreaming in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,9 +64,13 @@
 		E5F8C7CD2B93AF8400516FC8 /* iFMRadio */ = {
 			isa = PBXGroup;
 			children = (
+				E50EF84A2B93E5A800B23E4C /* Info.plist */,
 				E5F8C7CE2B93AF8500516FC8 /* iFMRadioApp.swift */,
-				E5F8C7D02B93AF8500516FC8 /* ContentView.swift */,
+				E5F8C7DD2B93B37100516FC8 /* ViewModels */,
+				E5F8C7DC2B93B32F00516FC8 /* Views */,
+				E5F8C7E02B93B63C00516FC8 /* Models */,
 				E5F8C7D22B93AF8700516FC8 /* Assets.xcassets */,
+				E50EF8512B951CC700B23E4C /* radioList.json */,
 				E5F8C7D42B93AF8700516FC8 /* Preview Content */,
 			);
 			path = iFMRadio;
@@ -65,6 +82,32 @@
 				E5F8C7D52B93AF8700516FC8 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E5F8C7DC2B93B32F00516FC8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E5F8C7D02B93AF8500516FC8 /* RadioListView.swift */,
+				E50EF84F2B94CA5900B23E4C /* TimerSheetView.swift */,
+				E50EF84D2B94AF7400B23E4C /* MusicPlayerView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E5F8C7DD2B93B37100516FC8 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				E5F8C7DE2B93B38B00516FC8 /* RadioListViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		E5F8C7E02B93B63C00516FC8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E5F8C7E12B93B65B00516FC8 /* RadioListModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +126,9 @@
 			dependencies = (
 			);
 			name = iFMRadio;
+			packageProductDependencies = (
+				E50EF8482B93C1E300B23E4C /* AudioStreaming */,
+			);
 			productName = iFMRadio;
 			productReference = E5F8C7CB2B93AF8400516FC8 /* iFMRadio.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +157,9 @@
 				Base,
 			);
 			mainGroup = E5F8C7C22B93AF8400516FC8;
+			packageReferences = (
+				E50EF8472B93C1E300B23E4C /* XCRemoteSwiftPackageReference "AudioStreaming" */,
+			);
 			productRefGroup = E5F8C7CC2B93AF8400516FC8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,6 +176,7 @@
 			files = (
 				E5F8C7D62B93AF8700516FC8 /* Preview Assets.xcassets in Resources */,
 				E5F8C7D32B93AF8700516FC8 /* Assets.xcassets in Resources */,
+				E50EF8522B951CC700B23E4C /* radioList.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,8 +187,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5F8C7D12B93AF8500516FC8 /* ContentView.swift in Sources */,
+				E50EF84E2B94AF7400B23E4C /* MusicPlayerView.swift in Sources */,
+				E5F8C7D12B93AF8500516FC8 /* RadioListView.swift in Sources */,
 				E5F8C7CF2B93AF8500516FC8 /* iFMRadioApp.swift in Sources */,
+				E5F8C7DF2B93B38B00516FC8 /* RadioListViewModel.swift in Sources */,
+				E50EF8502B94CA5900B23E4C /* TimerSheetView.swift in Sources */,
+				E5F8C7E22B93B65B00516FC8 /* RadioListModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +329,8 @@
 				DEVELOPMENT_TEAM = Z36TPB82KU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = iFMRadio/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -304,6 +360,8 @@
 				DEVELOPMENT_TEAM = Z36TPB82KU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = iFMRadio/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -344,6 +402,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E50EF8472B93C1E300B23E4C /* XCRemoteSwiftPackageReference "AudioStreaming" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dimitris-c/AudioStreaming";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E50EF8482B93C1E300B23E4C /* AudioStreaming */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E50EF8472B93C1E300B23E4C /* XCRemoteSwiftPackageReference "AudioStreaming" */;
+			productName = AudioStreaming;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E5F8C7C32B93AF8400516FC8 /* Project object */;
 }
