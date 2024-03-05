@@ -30,6 +30,7 @@ struct RadioListView: View {
                             }
                             .onTapGesture {
                                 radioViewModel.onTapGesture(radio: radio)
+                                radioViewModel.loadFavorites()
                             }
                     }
                 }
@@ -38,6 +39,9 @@ struct RadioListView: View {
                 controls()
             }
                 .navigationTitle("iFM Radio")
+        }
+        .onDisappear {
+            radioViewModel.onDissapear()
         }
         .onAppear {
             radioViewModel.onAppear()

@@ -10,6 +10,7 @@ import SwiftUI
 struct MusicPlayerView: View {
     @ObservedObject var radioViewModel: RadioListViewModel
     @Environment(\.colorScheme) var colorScheme
+    @State var isFavorite = false
     @State var isPresented: Bool = false
     var body: some View {
         NavigationStack {
@@ -26,8 +27,17 @@ struct MusicPlayerView: View {
                     .padding(.all)
                 extraControls()
                     .padding(.all)
+                    
                 
             }
+        }
+        .onAppear {
+            if radioViewModel.playingRadio.isFavorite == true {
+                isFavorite = true
+            }
+        }
+        .onDisappear {
+            radioViewModel.onDissapear()
         }
         .sheet(isPresented: $isPresented) {
             TimerSheetView(radioViewModel: radioViewModel)
@@ -45,6 +55,33 @@ struct MusicPlayerView: View {
                     .onTapGesture {
                         isPresented = true
                     }
+                if isFavorite == true {
+                    Image(systemName: "heart.fill")
+                        .resizable()
+                        .foregroundStyle(.red)
+                        .scaledToFill()
+                        .frame(width: 25, height: 25)
+                        .padding(.all)
+                        .onTapGesture {
+                            print("Favorited")
+                            radioViewModel.setFavorite()
+                            radioViewModel.saveFavorites()
+                            isFavorite = false
+                        }
+                } else {
+                    Image(systemName: "heart")
+                        .resizable()
+                        .foregroundStyle(.red)
+                        .scaledToFill()
+                        .frame(width: 25, height: 25)
+                        .padding(.all)
+                        .onTapGesture {
+                            print("Favorited")
+                            radioViewModel.setFavorite()
+                            radioViewModel.saveFavorites()
+                            isFavorite = true
+                        }
+                }
             }
         }
     }
