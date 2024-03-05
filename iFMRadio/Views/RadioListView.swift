@@ -20,6 +20,10 @@ struct RadioListView: View {
                 LazyVGrid(columns: adaptiveColumn, spacing: 20) {
                     ForEach(radioViewModel.radioList) { radio in
                         RoundedRectangle(cornerRadius: 20.0)
+                            .onAppear {
+                                radioViewModel.loadFavorites()
+
+                            }
                             .frame(width: 155, height: 160)
                             .overlay {
                                 Image(radio.image)
@@ -27,11 +31,24 @@ struct RadioListView: View {
                                     .frame(width: 130, height: 130)
                                     .clipShape(.circle)
                                     .scaledToFit()
+                                if radio.isFavorite == true {
+                                    Image(systemName: "heart.fill")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 20, height: 20)
+                                        .foregroundStyle(.red)
+                                        .padding(.trailing, 110)
+                                        .padding(.top, 110)
+
+
+                                }
                             }
+                        
                             .onTapGesture {
                                 radioViewModel.onTapGesture(radio: radio)
                                 radioViewModel.loadFavorites()
                             }
+                        
                     }
                 }
             }

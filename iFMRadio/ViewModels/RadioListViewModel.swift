@@ -80,7 +80,6 @@ class RadioListViewModel: ObservableObject {
     // MARK: - View
     func onAppear() {
         fetchRadioList()
-        loadFavorites()
     }
     func onTapGesture(radio: RadioListModel) {
         startPlaying(radio: radio)
