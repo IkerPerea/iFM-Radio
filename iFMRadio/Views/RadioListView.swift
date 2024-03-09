@@ -20,10 +20,15 @@ struct RadioListView: View {
             HStack {
                 TextField("Type to Search...", text: $searchText)
                     .textFieldStyle(.roundedBorder)
+                    .padding(.leading)
                 Image(systemName: "magnifyingglass.circle")
                     .foregroundStyle(.indigo)
                     .bold()
                     .padding(.all)
+                    .onTapGesture {
+                        radioViewModel.searchRadioResults = radioViewModel.radioList
+                        searchText = ""
+                    }
             }
             ScrollView {
                 LazyVGrid(columns: adaptiveColumn, spacing: 20) {
@@ -32,6 +37,7 @@ struct RadioListView: View {
                             .onAppear {
                                 radioViewModel.loadFavorites()
                             }
+                            .frame(width: 155, height: 160)
                             .overlay {
                                 Image(radio.image)
                                     .resizable()
@@ -55,17 +61,20 @@ struct RadioListView: View {
                     }
                 }
             }
-            VStack {
                 controls()
-            }
+            
                 .navigationTitle("iFM Radio")
         }
         .onChange(of: radioViewModel.radioList) {
             radioViewModel.filterRadioList()
         }
-        .onChange(of: searchText) {
-            if searchText == "" {
+        .onChange(of: searchText) { newValue in
+            if newValue.isEmpty {
                 radioViewModel.searchRadioResults = radioViewModel.radioList
+            } else {
+                radioViewModel.searchRadioResults = radioViewModel.radioList.filter { note in
+                    note.title.contains(newValue)
+                }
             }
         }
         .onDisappear {
@@ -77,7 +86,6 @@ struct RadioListView: View {
         .sheet(isPresented: $isPresenting) {
             MusicPlayerView(radioViewModel: radioViewModel)
         }
-        .padding()
     }
     fileprivate func controls() -> some View {
         return VStack {
@@ -189,7 +197,7 @@ struct RadioListView: View {
                         // End Of HStack
                     }
                 }
-        }          
+        }
         
     }
 

@@ -49,6 +49,7 @@ class RadioListViewModel: ObservableObject {
             switch completion {
             case .success(let finalRadioList):
                 self.radioList = finalRadioList
+                self.searchRadioResults = self.radioList
                 print("Sucess")
             case .failure(let error):
                 print(error.localizedDescription)
@@ -83,7 +84,6 @@ class RadioListViewModel: ObservableObject {
     // MARK: - View
     func onAppear() async {
         await fetchRadioList()
-        filteredRadioList = radioList
     }
     func onTapGesture(radio: RadioListModel) {
         startPlaying(radio: radio)
