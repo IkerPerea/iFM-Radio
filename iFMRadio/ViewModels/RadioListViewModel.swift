@@ -14,7 +14,7 @@ import MediaPlayer
 class RadioListViewModel: ObservableObject {
     // MARK: - Variables
     @Published var isPlaying = false
-    @Published var playingRadio: RadioListModel = RadioListModel(id: 0, title: "No Radio Playing", url: URL(string: "https://nodo07-cloud01.streaming-pro.com:8005/flaixbac.mp3")!, image: "", isFavorite: false)
+    @Published var playingRadio: RadioListModel = RadioListModel(id: 0, title: "No Radio Playing", url: URL(string: "https://nodo07-cloud01.streaming-pro.com:8005/flaixbac.mp3")!, image: "", isFavorite: false, tags: ["Music"])
     @Published var radioList: [RadioListModel] = []
     @Published var filteredRadioList: [RadioListModel] = []
     @Published var searchRadioResults: [RadioListModel] = []
@@ -109,7 +109,7 @@ class RadioListViewModel: ObservableObject {
     func nextRadio() {
         if let currentIndex = radioList.firstIndex(where: { $0.title == playingRadio.title }) {
             var nextIndex = currentIndex + 1
-            if currentIndex == 4 {
+            if currentIndex == 5 {
                 nextIndex = 0
             }
             startPlaying(radio: radioList[nextIndex])
@@ -119,14 +119,14 @@ class RadioListViewModel: ObservableObject {
         if let currentIndex = radioList.firstIndex(where: { $0.title == playingRadio.title }) {
             var nextIndex = currentIndex - 1
             if currentIndex == 0 {
-                nextIndex = 4
+                nextIndex = 5
             }
             startPlaying(radio: radioList[nextIndex])
         }
     }
     func stop() {
         player.stop()
-        playingRadio = RadioListModel(id: 0, title: "No Radio Playing", url: URL(string: "https://nodo07-cloud01.streaming-pro.com:8005/flaixbac.mp3")!, image: "", isFavorite: false)
+        playingRadio = RadioListModel(id: 0, title: "No Radio Playing", url: URL(string: "https://nodo07-cloud01.streaming-pro.com:8005/flaixbac.mp3")!, image: "", isFavorite: false, tags: ["Music"])
     }
     func pause() {
         player.pause()
@@ -150,9 +150,9 @@ class RadioListViewModel: ObservableObject {
     }
     func loadFavorites() {
         print("Favorites Loaded")
-        self.isFavoriteList = UserDefaults.standard.array(forKey: "favoriteList") as? [Bool] ?? [false, false, false, false, false]
+        self.isFavoriteList = UserDefaults.standard.array(forKey: "favoriteList") as? [Bool] ?? [false, false, false, false, false, false]
         if isFavoriteList.isEmpty {
-            isFavoriteList = [false, false, false, false, false]
+            isFavoriteList = [false, false, false, false, false, false]
         }
         radioList.forEach { radio in
             let index = radio.id

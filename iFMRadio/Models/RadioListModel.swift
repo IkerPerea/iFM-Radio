@@ -23,11 +23,13 @@ class RadioListModel: Identifiable, Decodable, Equatable {
     let url: URL
     let image: String
     var isFavorite: Bool
-    init(id: Int, title: String, url: URL, image: String, isFavorite: Bool) {
+    let tags: [String]
+    init(id: Int, title: String, url: URL, image: String, isFavorite: Bool, tags: [String]) {
         self.title = title
         self.url = url
         self.image = image
         self.id = id
         self.isFavorite = isFavorite
+        self.tags = tags
     }
 }

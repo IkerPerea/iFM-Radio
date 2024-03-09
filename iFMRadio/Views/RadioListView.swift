@@ -32,26 +32,34 @@ struct RadioListView: View {
                         radioViewModel.searchRadioResults = radioViewModel.radioList
                         searchText = ""
                     }
-                Image(systemName: "star.circle")
-                    .resizable()
-                    .frame(width: 30, height: 30)
-                    .foregroundStyle(.indigo)
-                    .bold()
-                    .padding(.trailing)
-                    .onTapGesture {
-                        if isFavoriteList {
-                            radioViewModel.searchRadioResults = radioViewModel.radioList
-                            isFavoriteList = false
-                        } else {
-                            isFavoriteList = true
-                            radioViewModel.searchRadioResults = []
-                            radioViewModel.radioList.forEach { radio in
-                                if radio.isFavorite {
-                                    radioViewModel.searchRadioResults.append(radio)
-                                }
-                            }
+                if isFavoriteList {
+                    Image(systemName: "star.circle.fill")
+                        .resizable()
+                        .frame(width: 30, height: 30)
+                        .foregroundStyle(.indigo)
+                        .bold()
+                        .padding(.trailing)
+                        .onTapGesture {
+                                radioViewModel.searchRadioResults = radioViewModel.radioList
+                                isFavoriteList = false
                         }
-                    }
+                } else {
+                    Image(systemName: "star.circle")
+                        .resizable()
+                        .frame(width: 30, height: 30)
+                        .foregroundStyle(.indigo)
+                        .bold()
+                        .padding(.trailing)
+                        .onTapGesture {
+                                isFavoriteList = true
+                                radioViewModel.searchRadioResults = []
+                                radioViewModel.radioList.forEach { radio in
+                                    if radio.isFavorite {
+                                        radioViewModel.searchRadioResults.append(radio)
+                                    }
+                                }
+                        }
+                }
             }
             ScrollView {
                 LazyVGrid(columns: adaptiveColumn, spacing: 20) {
