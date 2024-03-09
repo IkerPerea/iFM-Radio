@@ -16,6 +16,8 @@ class RadioListViewModel: ObservableObject {
     @Published var isPlaying = false
     @Published var playingRadio: RadioListModel = RadioListModel(id: 0, title: "No Radio Playing", url: URL(string: "https://nodo07-cloud01.streaming-pro.com:8005/flaixbac.mp3")!, image: "", isFavorite: false)
     @Published var radioList: [RadioListModel] = []
+    @Published var filteredRadioList: [RadioListModel] = []
+    @Published var searchRadioResults: [RadioListModel] = []
     var player = AudioPlayer()
     var nowPlayingInfo = [String : Any]()
     var dateTimer: Timer?
@@ -40,14 +42,14 @@ class RadioListViewModel: ObservableObject {
         MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
     }
     // MARK: - Data Download
-    func fetchRadioList() {
+    func fetchRadioList() async {
         print("Fetching")
         guard let url = URL(string: "https://api.jsonbin.io/v3/b/65e5c9a4dc74654018ada222") else { return }
         fetchData(at: url) { completion in
             switch completion {
             case .success(let finalRadioList):
                 self.radioList = finalRadioList
-                print("Succes")
+                print("Sucess")
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -66,6 +68,7 @@ class RadioListViewModel: ObservableObject {
                     completion(.success(list.record.radios))
                 } catch let decoderError {
                     completion(.failure(decoderError))
+                    print(decoderError.localizedDescription)
                 }
             }
         }.resume()
@@ -78,8 +81,9 @@ class RadioListViewModel: ObservableObject {
         stop()
     }
     // MARK: - View
-    func onAppear() {
-        fetchRadioList()
+    func onAppear() async {
+        await fetchRadioList()
+        filteredRadioList = radioList
     }
     func onTapGesture(radio: RadioListModel) {
         startPlaying(radio: radio)
@@ -146,9 +150,22 @@ class RadioListViewModel: ObservableObject {
     func loadFavorites() {
         print("Favorites Loaded")
         self.isFavoriteList = UserDefaults.standard.array(forKey: "favoriteList") as? [Bool] ?? [false, false, false, false, false]
+        if isFavoriteList.isEmpty {
+            isFavoriteList = [false, false, false, false, false]
+            radioList.forEach { radio in
+                let index = radio.id
+                print(radio.id)
+                radio.isFavorite = isFavoriteList[index]
+            }
+        }
+    }
+    func filterRadioList() {
+        filteredRadioList = radioList
+        filteredRadioList = filteredRadioList.filter { $0.isFavorite == true }
         radioList.forEach { radio in
-            let index = radio.id
-            radio.isFavorite = isFavoriteList[index]
+            if radio.isFavorite == false {
+                filteredRadioList.append(radio)
+            }
         }
     }
     func setFavorite() {

@@ -11,20 +11,27 @@ struct RadioListView: View {
     @ObservedObject var radioViewModel: RadioListViewModel
     @Environment(\.colorScheme) var colorScheme
     @State public var isPresenting = false
+    @State var searchText: String = ""
     private let adaptiveColumn = [
            GridItem(.adaptive(minimum: 150))
        ]
     var body: some View {
         NavigationStack {
+            HStack {
+                TextField("Type to Search...", text: $searchText)
+                    .textFieldStyle(.roundedBorder)
+                Image(systemName: "magnifyingglass.circle")
+                    .foregroundStyle(.indigo)
+                    .bold()
+                    .padding(.all)
+            }
             ScrollView {
                 LazyVGrid(columns: adaptiveColumn, spacing: 20) {
-                    ForEach(radioViewModel.radioList) { radio in
+                    ForEach(radioViewModel.searchRadioResults) { radio in
                         RoundedRectangle(cornerRadius: 20.0)
                             .onAppear {
                                 radioViewModel.loadFavorites()
-
                             }
-                            .frame(width: 155, height: 160)
                             .overlay {
                                 Image(radio.image)
                                     .resizable()
@@ -39,16 +46,12 @@ struct RadioListView: View {
                                         .foregroundStyle(.red)
                                         .padding(.trailing, 110)
                                         .padding(.top, 110)
-
-
                                 }
                             }
-                        
                             .onTapGesture {
                                 radioViewModel.onTapGesture(radio: radio)
                                 radioViewModel.loadFavorites()
                             }
-                        
                     }
                 }
             }
@@ -57,11 +60,19 @@ struct RadioListView: View {
             }
                 .navigationTitle("iFM Radio")
         }
+        .onChange(of: radioViewModel.radioList) {
+            radioViewModel.filterRadioList()
+        }
+        .onChange(of: searchText) {
+            if searchText == "" {
+                radioViewModel.searchRadioResults = radioViewModel.radioList
+            }
+        }
         .onDisappear {
             radioViewModel.onDissapear()
         }
-        .onAppear {
-            radioViewModel.onAppear()
+        .task {
+            await radioViewModel.onAppear()
         }
         .sheet(isPresented: $isPresenting) {
             MusicPlayerView(radioViewModel: radioViewModel)
