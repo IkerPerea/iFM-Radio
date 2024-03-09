@@ -7,11 +7,13 @@
 
 import SwiftUI
 
+
 struct RadioListView: View {
     @ObservedObject var radioViewModel: RadioListViewModel
     @Environment(\.colorScheme) var colorScheme
     @State public var isPresenting = false
     @State var searchText: String = ""
+    @State var isFavoriteList: Bool = false
     private let adaptiveColumn = [
            GridItem(.adaptive(minimum: 150))
        ]
@@ -22,12 +24,33 @@ struct RadioListView: View {
                     .textFieldStyle(.roundedBorder)
                     .padding(.leading)
                 Image(systemName: "magnifyingglass.circle")
+                    .resizable()
+                    .frame(width: 30, height: 30)
                     .foregroundStyle(.indigo)
                     .bold()
-                    .padding(.all)
                     .onTapGesture {
                         radioViewModel.searchRadioResults = radioViewModel.radioList
                         searchText = ""
+                    }
+                Image(systemName: "star.circle")
+                    .resizable()
+                    .frame(width: 30, height: 30)
+                    .foregroundStyle(.indigo)
+                    .bold()
+                    .padding(.trailing)
+                    .onTapGesture {
+                        if isFavoriteList {
+                            radioViewModel.searchRadioResults = radioViewModel.radioList
+                            isFavoriteList = false
+                        } else {
+                            isFavoriteList = true
+                            radioViewModel.searchRadioResults = []
+                            radioViewModel.radioList.forEach { radio in
+                                if radio.isFavorite {
+                                    radioViewModel.searchRadioResults.append(radio)
+                                }
+                            }
+                        }
                     }
             }
             ScrollView {

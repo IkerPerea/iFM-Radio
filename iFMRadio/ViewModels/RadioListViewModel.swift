@@ -50,6 +50,7 @@ class RadioListViewModel: ObservableObject {
             case .success(let finalRadioList):
                 self.radioList = finalRadioList
                 self.searchRadioResults = self.radioList
+                self.loadFavorites()
                 print("Sucess")
             case .failure(let error):
                 print(error.localizedDescription)
@@ -152,11 +153,11 @@ class RadioListViewModel: ObservableObject {
         self.isFavoriteList = UserDefaults.standard.array(forKey: "favoriteList") as? [Bool] ?? [false, false, false, false, false]
         if isFavoriteList.isEmpty {
             isFavoriteList = [false, false, false, false, false]
-            radioList.forEach { radio in
-                let index = radio.id
-                print(radio.id)
-                radio.isFavorite = isFavoriteList[index]
-            }
+        }
+        radioList.forEach { radio in
+            let index = radio.id
+            print(radio.id)
+            radio.isFavorite = isFavoriteList[index]
         }
     }
     func filterRadioList() {
