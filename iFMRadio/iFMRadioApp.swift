@@ -12,7 +12,7 @@ struct iFMRadioApp: App {
     @ObservedObject var radioListViewModel = RadioListViewModel()
     var body: some Scene {
         WindowGroup {
-            RadioListView(radioViewModel: radioListViewModel)
+            ExploreView(radioViewModel: radioListViewModel)
         }
     }
 }

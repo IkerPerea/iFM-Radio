@@ -43,7 +43,7 @@ class RadioListViewModel: ObservableObject {
         MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
     }
     // MARK: - Data Download
-    func fetchRadioList() async {
+    func fetchRadioList() {
         print("Fetching")
         guard let url = URL(string: "https://api.jsonbin.io/v3/b/65e5c9a4dc74654018ada222") else { return }
         fetchData(at: url) { completion in
@@ -84,8 +84,8 @@ class RadioListViewModel: ObservableObject {
         stop()
     }
     // MARK: - View
-    func onAppear() async {
-        await fetchRadioList()
+    func onAppear() {
+        fetchRadioList()
     }
     func onTapGesture(radio: RadioListModel) {
         startPlaying(radio: radio)

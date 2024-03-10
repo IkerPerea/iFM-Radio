@@ -28,8 +28,6 @@ struct MusicPlayerView: View {
                     .padding(.all)
                 extraControls()
                     .padding(.all)
-                    
-                
             }
         }
         .onAppear {

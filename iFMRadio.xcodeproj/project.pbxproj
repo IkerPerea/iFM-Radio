@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D10ED0DD2B9DEB29003F502F /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10ED0DC2B9DEB29003F502F /* ExploreView.swift */; };
 		E50EF8492B93C1E300B23E4C /* AudioStreaming in Frameworks */ = {isa = PBXBuildFile; productRef = E50EF8482B93C1E300B23E4C /* AudioStreaming */; };
 		E50EF84E2B94AF7400B23E4C /* MusicPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50EF84D2B94AF7400B23E4C /* MusicPlayerView.swift */; };
 		E50EF8502B94CA5900B23E4C /* TimerSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50EF84F2B94CA5900B23E4C /* TimerSheetView.swift */; };
@@ -14,7 +15,7 @@
 		E57168A72B9D144D00E92B9C /* TagRadioListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57168A62B9D144D00E92B9C /* TagRadioListView.swift */; };
 		E57168A92B9DD6D500E92B9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E57168A82B9DD6D500E92B9C /* LaunchScreen.storyboard */; };
 		E5F8C7CF2B93AF8500516FC8 /* iFMRadioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F8C7CE2B93AF8500516FC8 /* iFMRadioApp.swift */; };
-		E5F8C7D12B93AF8500516FC8 /* RadioListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F8C7D02B93AF8500516FC8 /* RadioListView.swift */; };
+		E5F8C7D12B93AF8500516FC8 /* RadioSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F8C7D02B93AF8500516FC8 /* RadioSearchView.swift */; };
 		E5F8C7D32B93AF8700516FC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5F8C7D22B93AF8700516FC8 /* Assets.xcassets */; };
 		E5F8C7D62B93AF8700516FC8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5F8C7D52B93AF8700516FC8 /* Preview Assets.xcassets */; };
 		E5F8C7DF2B93B38B00516FC8 /* RadioListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F8C7DE2B93B38B00516FC8 /* RadioListViewModel.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D10ED0DC2B9DEB29003F502F /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
 		E50EF84A2B93E5A800B23E4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E50EF84D2B94AF7400B23E4C /* MusicPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerView.swift; sourceTree = "<group>"; };
 		E50EF84F2B94CA5900B23E4C /* TimerSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerSheetView.swift; sourceTree = "<group>"; };
@@ -30,7 +32,7 @@
 		E57168A82B9DD6D500E92B9C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E5F8C7CB2B93AF8400516FC8 /* iFMRadio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iFMRadio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5F8C7CE2B93AF8500516FC8 /* iFMRadioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iFMRadioApp.swift; sourceTree = "<group>"; };
-		E5F8C7D02B93AF8500516FC8 /* RadioListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioListView.swift; sourceTree = "<group>"; };
+		E5F8C7D02B93AF8500516FC8 /* RadioSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioSearchView.swift; sourceTree = "<group>"; };
 		E5F8C7D22B93AF8700516FC8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E5F8C7D52B93AF8700516FC8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E5F8C7DE2B93B38B00516FC8 /* RadioListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioListViewModel.swift; sourceTree = "<group>"; };
@@ -91,7 +93,8 @@
 		E5F8C7DC2B93B32F00516FC8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E5F8C7D02B93AF8500516FC8 /* RadioListView.swift */,
+				E5F8C7D02B93AF8500516FC8 /* RadioSearchView.swift */,
+				D10ED0DC2B9DEB29003F502F /* ExploreView.swift */,
 				E57168A82B9DD6D500E92B9C /* LaunchScreen.storyboard */,
 				E57168A62B9D144D00E92B9C /* TagRadioListView.swift */,
 				E50EF84F2B94CA5900B23E4C /* TimerSheetView.swift */,
@@ -196,10 +199,11 @@
 			files = (
 				E50EF84E2B94AF7400B23E4C /* MusicPlayerView.swift in Sources */,
 				E57168A72B9D144D00E92B9C /* TagRadioListView.swift in Sources */,
-				E5F8C7D12B93AF8500516FC8 /* RadioListView.swift in Sources */,
+				E5F8C7D12B93AF8500516FC8 /* RadioSearchView.swift in Sources */,
 				E5F8C7CF2B93AF8500516FC8 /* iFMRadioApp.swift in Sources */,
 				E5F8C7DF2B93B38B00516FC8 /* RadioListViewModel.swift in Sources */,
 				E50EF8502B94CA5900B23E4C /* TimerSheetView.swift in Sources */,
+				D10ED0DD2B9DEB29003F502F /* ExploreView.swift in Sources */,
 				E5F8C7E22B93B65B00516FC8 /* RadioListModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -418,8 +422,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/dimitris-c/AudioStreaming";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
