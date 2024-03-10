@@ -11,6 +11,7 @@
 		E50EF84E2B94AF7400B23E4C /* MusicPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50EF84D2B94AF7400B23E4C /* MusicPlayerView.swift */; };
 		E50EF8502B94CA5900B23E4C /* TimerSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50EF84F2B94CA5900B23E4C /* TimerSheetView.swift */; };
 		E50EF8522B951CC700B23E4C /* radioList.json in Resources */ = {isa = PBXBuildFile; fileRef = E50EF8512B951CC700B23E4C /* radioList.json */; };
+		E57168A72B9D144D00E92B9C /* TagRadioListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57168A62B9D144D00E92B9C /* TagRadioListView.swift */; };
 		E5F8C7CF2B93AF8500516FC8 /* iFMRadioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F8C7CE2B93AF8500516FC8 /* iFMRadioApp.swift */; };
 		E5F8C7D12B93AF8500516FC8 /* RadioListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F8C7D02B93AF8500516FC8 /* RadioListView.swift */; };
 		E5F8C7D32B93AF8700516FC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5F8C7D22B93AF8700516FC8 /* Assets.xcassets */; };
@@ -24,6 +25,7 @@
 		E50EF84D2B94AF7400B23E4C /* MusicPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerView.swift; sourceTree = "<group>"; };
 		E50EF84F2B94CA5900B23E4C /* TimerSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerSheetView.swift; sourceTree = "<group>"; };
 		E50EF8512B951CC700B23E4C /* radioList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = radioList.json; sourceTree = "<group>"; };
+		E57168A62B9D144D00E92B9C /* TagRadioListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagRadioListView.swift; sourceTree = "<group>"; };
 		E5F8C7CB2B93AF8400516FC8 /* iFMRadio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iFMRadio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5F8C7CE2B93AF8500516FC8 /* iFMRadioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iFMRadioApp.swift; sourceTree = "<group>"; };
 		E5F8C7D02B93AF8500516FC8 /* RadioListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioListView.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				E5F8C7D02B93AF8500516FC8 /* RadioListView.swift */,
+				E57168A62B9D144D00E92B9C /* TagRadioListView.swift */,
 				E50EF84F2B94CA5900B23E4C /* TimerSheetView.swift */,
 				E50EF84D2B94AF7400B23E4C /* MusicPlayerView.swift */,
 			);
@@ -188,6 +191,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E50EF84E2B94AF7400B23E4C /* MusicPlayerView.swift in Sources */,
+				E57168A72B9D144D00E92B9C /* TagRadioListView.swift in Sources */,
 				E5F8C7D12B93AF8500516FC8 /* RadioListView.swift in Sources */,
 				E5F8C7CF2B93AF8500516FC8 /* iFMRadioApp.swift in Sources */,
 				E5F8C7DF2B93B38B00516FC8 /* RadioListViewModel.swift in Sources */,

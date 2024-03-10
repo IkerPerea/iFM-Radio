@@ -14,11 +14,39 @@ struct RadioListView: View {
     @State public var isPresenting = false
     @State var searchText: String = ""
     @State var isFavoriteList: Bool = false
+    @State var isPlaying: Bool = false
     private let adaptiveColumn = [
            GridItem(.adaptive(minimum: 150))
        ]
+    let columns = [
+            GridItem(.adaptive(minimum: 100))
+        ]
     var body: some View {
         NavigationStack {
+                ScrollView(.horizontal) {
+                    HStack {
+                        ForEach(radioViewModel.tagsList, id: \.self) { tag in
+                            NavigationLink(destination: TagRadioListView(tag: tag, radioViewModel: radioViewModel)) {
+                                if tag == "Music" {
+                                    Image(systemName: "music.note")
+                                } else if tag == "Sports" {
+                                    Image(systemName: "soccerball")
+                                } else if tag == "English" {
+                                    Image(systemName: "person.2.wave.2")
+                                } else if tag == "News" {
+                                    Image(systemName: "newspaper")
+                                }
+                                Text(tag)
+                            }
+                            .buttonStyle(.bordered)
+                            .foregroundStyle(.indigo)
+                        }
+                    
+                    }
+                    }
+                .scrollIndicators(.hidden)
+                .padding(.leading)
+                .padding(.trailing)
             HStack {
                 TextField("Type to Search...", text: $searchText)
                     .textFieldStyle(.roundedBorder)
@@ -99,6 +127,7 @@ struct RadioListView: View {
         .onChange(of: radioViewModel.radioList) {
             radioViewModel.filterRadioList()
         }
+        .sensoryFeedback(.start, trigger: isPlaying)
         .onChange(of: searchText) { newValue in
             if newValue.isEmpty {
                 radioViewModel.searchRadioResults = radioViewModel.radioList
@@ -151,6 +180,7 @@ struct RadioListView: View {
                         HStack {
                             Button {
                                 radioViewModel.lastRadio()
+                                isPlaying.toggle()
                             } label: {
                                     if colorScheme == .dark {
                                         Image(systemName: "backward.circle.fill")
@@ -170,8 +200,10 @@ struct RadioListView: View {
                             Button {
                                 if radioViewModel.isPlaying {
                                     radioViewModel.pause()
+                                    isPlaying.toggle()
                                 } else {
                                     radioViewModel.resume()
+                                    isPlaying.toggle()
                                 }
                             } label: {
                                 if radioViewModel.isPlaying {
@@ -206,6 +238,7 @@ struct RadioListView: View {
                             }
                             .padding(.all)
                             Button {
+                                isPlaying.toggle()
                                 radioViewModel.nextRadio()
                             } label: {
                                     if colorScheme == .dark {

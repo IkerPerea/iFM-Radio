@@ -12,6 +12,7 @@ struct MusicPlayerView: View {
     @Environment(\.colorScheme) var colorScheme
     @State var isFavorite = false
     @State var isPresented: Bool = false
+    @State var isPlaying: Bool = true
     var body: some View {
         NavigationStack {
             VStack {
@@ -87,7 +88,6 @@ struct MusicPlayerView: View {
     }
     fileprivate func controls() -> some View {
         return VStack {
- 
                     VStack {
                         Spacer()
                         HStack {
@@ -112,8 +112,10 @@ struct MusicPlayerView: View {
                             Button {
                                 if radioViewModel.isPlaying {
                                     radioViewModel.pause()
+                                    isPlaying = false
                                 } else {
                                     radioViewModel.resume()
+                                    isPlaying = true
                                 }
                             } label: {
                                 if radioViewModel.isPlaying {
@@ -146,6 +148,7 @@ struct MusicPlayerView: View {
                                     }
                                 }
                             }
+                            .sensoryFeedback(.success, trigger: isPlaying)
                             .padding(.all)
                             Button {
                                 radioViewModel.nextRadio()

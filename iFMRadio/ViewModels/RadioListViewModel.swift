@@ -18,6 +18,7 @@ class RadioListViewModel: ObservableObject {
     @Published var radioList: [RadioListModel] = []
     @Published var filteredRadioList: [RadioListModel] = []
     @Published var searchRadioResults: [RadioListModel] = []
+    @Published var tagsList: [String] = ["Music", "Sports", "English", "News"]
     var player = AudioPlayer()
     var nowPlayingInfo = [String : Any]()
     var dateTimer: Timer?
@@ -109,7 +110,7 @@ class RadioListViewModel: ObservableObject {
     func nextRadio() {
         if let currentIndex = radioList.firstIndex(where: { $0.title == playingRadio.title }) {
             var nextIndex = currentIndex + 1
-            if currentIndex == 5 {
+            if currentIndex == 7 {
                 nextIndex = 0
             }
             startPlaying(radio: radioList[nextIndex])
@@ -119,7 +120,7 @@ class RadioListViewModel: ObservableObject {
         if let currentIndex = radioList.firstIndex(where: { $0.title == playingRadio.title }) {
             var nextIndex = currentIndex - 1
             if currentIndex == 0 {
-                nextIndex = 5
+                nextIndex = 7
             }
             startPlaying(radio: radioList[nextIndex])
         }
@@ -150,14 +151,25 @@ class RadioListViewModel: ObservableObject {
     }
     func loadFavorites() {
         print("Favorites Loaded")
-        self.isFavoriteList = UserDefaults.standard.array(forKey: "favoriteList") as? [Bool] ?? [false, false, false, false, false, false]
+        self.isFavoriteList = UserDefaults.standard.array(forKey: "favoriteList") as? [Bool] ?? [false, false, false, false, false, false, false]
         if isFavoriteList.isEmpty {
-            isFavoriteList = [false, false, false, false, false, false]
+            radioList.forEach { radio in
+                isFavoriteList.append(false)
+            }
+        }
+        if isFavoriteList.count != radioList.count {
+                tryToFillArray()
         }
         radioList.forEach { radio in
             let index = radio.id
             print(radio.id)
             radio.isFavorite = isFavoriteList[index]
+        }
+    }
+    func tryToFillArray() {
+        if isFavoriteList.count != radioList.count {
+            isFavoriteList.append(false)
+            tryToFillArray()
         }
     }
     func filterRadioList() {
