@@ -12,6 +12,7 @@
 		E50EF8502B94CA5900B23E4C /* TimerSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50EF84F2B94CA5900B23E4C /* TimerSheetView.swift */; };
 		E50EF8522B951CC700B23E4C /* radioList.json in Resources */ = {isa = PBXBuildFile; fileRef = E50EF8512B951CC700B23E4C /* radioList.json */; };
 		E57168A72B9D144D00E92B9C /* TagRadioListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57168A62B9D144D00E92B9C /* TagRadioListView.swift */; };
+		E57168A92B9DD6D500E92B9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E57168A82B9DD6D500E92B9C /* LaunchScreen.storyboard */; };
 		E5F8C7CF2B93AF8500516FC8 /* iFMRadioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F8C7CE2B93AF8500516FC8 /* iFMRadioApp.swift */; };
 		E5F8C7D12B93AF8500516FC8 /* RadioListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F8C7D02B93AF8500516FC8 /* RadioListView.swift */; };
 		E5F8C7D32B93AF8700516FC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5F8C7D22B93AF8700516FC8 /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 		E50EF84F2B94CA5900B23E4C /* TimerSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerSheetView.swift; sourceTree = "<group>"; };
 		E50EF8512B951CC700B23E4C /* radioList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = radioList.json; sourceTree = "<group>"; };
 		E57168A62B9D144D00E92B9C /* TagRadioListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagRadioListView.swift; sourceTree = "<group>"; };
+		E57168A82B9DD6D500E92B9C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E5F8C7CB2B93AF8400516FC8 /* iFMRadio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iFMRadio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5F8C7CE2B93AF8500516FC8 /* iFMRadioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iFMRadioApp.swift; sourceTree = "<group>"; };
 		E5F8C7D02B93AF8500516FC8 /* RadioListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioListView.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				E5F8C7D02B93AF8500516FC8 /* RadioListView.swift */,
+				E57168A82B9DD6D500E92B9C /* LaunchScreen.storyboard */,
 				E57168A62B9D144D00E92B9C /* TagRadioListView.swift */,
 				E50EF84F2B94CA5900B23E4C /* TimerSheetView.swift */,
 				E50EF84D2B94AF7400B23E4C /* MusicPlayerView.swift */,
@@ -178,6 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5F8C7D62B93AF8700516FC8 /* Preview Assets.xcassets in Resources */,
+				E57168A92B9DD6D500E92B9C /* LaunchScreen.storyboard in Resources */,
 				E5F8C7D32B93AF8700516FC8 /* Assets.xcassets in Resources */,
 				E50EF8522B951CC700B23E4C /* radioList.json in Resources */,
 			);
@@ -338,13 +342,14 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = ikerpereadev.iFMRadio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -369,13 +374,14 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = ikerpereadev.iFMRadio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

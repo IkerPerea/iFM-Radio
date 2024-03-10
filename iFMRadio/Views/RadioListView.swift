@@ -14,7 +14,7 @@ struct RadioListView: View {
     @State public var isPresenting = false
     @State var searchText: String = ""
     @State var isFavoriteList: Bool = false
-    @State var isPlaying: Bool = false
+    @State var haptics: Bool = false
     private let adaptiveColumn = [
            GridItem(.adaptive(minimum: 150))
        ]
@@ -109,13 +109,14 @@ struct RadioListView: View {
                                         .scaledToFit()
                                         .frame(width: 20, height: 20)
                                         .foregroundStyle(.red)
-                                        .padding(.trailing, 110)
-                                        .padding(.top, 110)
+                                        .padding(.trailing, 120)
+                                        .padding(.top, 120)
                                 }
                             }
                             .onTapGesture {
                                 radioViewModel.onTapGesture(radio: radio)
                                 radioViewModel.loadFavorites()
+                                haptics.toggle()
                             }
                     }
                 }
@@ -127,7 +128,7 @@ struct RadioListView: View {
         .onChange(of: radioViewModel.radioList) {
             radioViewModel.filterRadioList()
         }
-        .sensoryFeedback(.start, trigger: isPlaying)
+        .sensoryFeedback(.increase, trigger: haptics)
         .onChange(of: searchText) { newValue in
             if newValue.isEmpty {
                 radioViewModel.searchRadioResults = radioViewModel.radioList
@@ -180,7 +181,7 @@ struct RadioListView: View {
                         HStack {
                             Button {
                                 radioViewModel.lastRadio()
-                                isPlaying.toggle()
+                                haptics.toggle()
                             } label: {
                                     if colorScheme == .dark {
                                         Image(systemName: "backward.circle.fill")
@@ -200,10 +201,10 @@ struct RadioListView: View {
                             Button {
                                 if radioViewModel.isPlaying {
                                     radioViewModel.pause()
-                                    isPlaying.toggle()
+                                    haptics.toggle()
                                 } else {
                                     radioViewModel.resume()
-                                    isPlaying.toggle()
+                                    haptics.toggle()
                                 }
                             } label: {
                                 if radioViewModel.isPlaying {
@@ -238,7 +239,7 @@ struct RadioListView: View {
                             }
                             .padding(.all)
                             Button {
-                                isPlaying.toggle()
+                                haptics.toggle()
                                 radioViewModel.nextRadio()
                             } label: {
                                     if colorScheme == .dark {

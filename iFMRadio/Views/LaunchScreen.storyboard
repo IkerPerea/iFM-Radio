@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="obG-Y5-kRd">
+                                <rect key="frame" x="0.0" y="832" width="393" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iFMRadio" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="GJd-Yh-RWb">
+                                <rect key="frame" x="0.0" y="215.66666666666666" width="393" height="43.666666666666657"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wave.3.left" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="g3p-H1-vFC">
+                                <rect key="frame" x="3" y="289.66666666666674" width="240" height="128"/>
+                                <color key="tintColor" systemColor="systemIndigoColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="125.33333333333334" id="5mQ-Py-R1d"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="radio" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="SHh-Wf-tWs">
+                                <rect key="frame" x="140" y="287.66666666666674" width="240" height="128"/>
+                                <color key="tintColor" systemColor="systemIndigoColor"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="All your Radios in one place." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" sizingRule="oversize" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xoa-Ad-5gS">
+                                <rect key="frame" x="48" y="424" width="298" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="XcR-CU-9Ro"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="centerX" secondItem="obG-Y5-kRd" secondAttribute="centerX" id="5cz-MP-9tL"/>
+                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="trailing" secondItem="SHh-Wf-tWs" secondAttribute="trailing" constant="13" id="6Aw-Z8-Ksv"/>
+                            <constraint firstItem="Xoa-Ad-5gS" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" constant="48" id="MAy-qv-qE5"/>
+                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="bottom" secondItem="Xoa-Ad-5gS" secondAttribute="bottom" constant="366" id="PHN-XU-lup"/>
+                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="centerX" secondItem="GJd-Yh-RWb" secondAttribute="centerX" id="Q3B-4B-g5h"/>
+                            <constraint firstItem="SHh-Wf-tWs" firstAttribute="top" secondItem="GJd-Yh-RWb" secondAttribute="bottom" constant="31.000000000000057" id="Qqg-nc-50j"/>
+                            <constraint firstItem="obG-Y5-kRd" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" symbolic="YES" id="SfN-ll-jLj"/>
+                            <constraint firstItem="g3p-H1-vFC" firstAttribute="centerY" secondItem="SHh-Wf-tWs" secondAttribute="centerY" id="VC9-vt-7XL"/>
+                            <constraint firstAttribute="bottom" secondItem="obG-Y5-kRd" secondAttribute="bottom" constant="20" id="Y44-ml-fuU"/>
+                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="trailing" secondItem="g3p-H1-vFC" secondAttribute="trailing" constant="150" id="aPJ-7G-wtf"/>
+                            <constraint firstItem="Xoa-Ad-5gS" firstAttribute="centerX" secondItem="GJd-Yh-RWb" secondAttribute="centerX" id="dv9-Bg-4Kn"/>
+                            <constraint firstItem="Xoa-Ad-5gS" firstAttribute="top" secondItem="SHh-Wf-tWs" secondAttribute="bottom" constant="6.9999999999999432" id="jTo-la-hP2"/>
+                            <constraint firstItem="GJd-Yh-RWb" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="bottom" multiplier="1/3" constant="-46.5" id="moa-c2-u7t"/>
+                            <constraint firstItem="g3p-H1-vFC" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" constant="3" id="p5Q-ZN-R9H"/>
+                            <constraint firstItem="Xoa-Ad-5gS" firstAttribute="top" secondItem="g3p-H1-vFC" secondAttribute="bottom" constant="7.6666666666666288" id="pdm-Vj-xfd"/>
+                            <constraint firstItem="SHh-Wf-tWs" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" constant="140" id="wCa-wd-URF"/>
+                            <constraint firstItem="GJd-Yh-RWb" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" symbolic="YES" id="x7j-FC-K8j"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53" y="375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="radio" catalog="system" width="128" height="115"/>
+        <image name="wave.3.left" catalog="system" width="83" height="128"/>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
