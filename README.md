@@ -17,6 +17,6 @@ My name is Iker and I code everyday so I can archive my dream: being a professio
 **Special Thanks to:**
 - AudioStreaming(https://github.com/dimitris-c/AudioStreaming)
 - OpenCoreLegacyPatcher(https://github.com/dortania/OpenCore-Legacy-Patcher), for giving a second life to old MacBooks.
-- JSONBin.io for letting 10.000 free calls to the server.
+- JSONBin.io for giving 10.000 free calls to the server.
 - My fathers for giving me all I need (and more) for learning development.
 
