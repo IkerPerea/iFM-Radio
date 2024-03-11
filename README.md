@@ -8,8 +8,7 @@ My name is Iker and I code everyday so I can archive my dream: being a professio
 - JSON Decoding and fetching from a server (stored at: jsonbin.io)
 - Radio Streaming using AudioStreaming(a Swift package from user "dimitris-c")
 - TabView with two pages:
-- Explore, an organized list with all Radios.
-- Search, where you can search by tag, name or see the raw list of Radios using a GridView.
+- Search, where you can search by tag, name, see the raw list of Radios using a GridView or watching the list by tag.
 - Filtering by favourite Radios
 - PlayerView where you can set a timer for stoping the streaming or like/favourite your radio.
 - System integrated media controls (Control Centre / Lock Screen)
