@@ -104,8 +104,8 @@ struct RadioSearchView: View {
                                                                 .scaledToFit()
                                                                 .frame(width: 16, height: 16)
                                                                 .foregroundStyle(.red)
-                                                                .padding(.trailing, 70)
-                                                                .padding(.top, 70)
+                                                                .padding(.trailing, 75)
+                                                                .padding(.top, 75)
                                                         }
                                                     }
                                                     .onTapGesture {
@@ -153,8 +153,8 @@ struct RadioSearchView: View {
                                                             .scaledToFit()
                                                             .frame(width: 16, height: 16)
                                                             .foregroundStyle(.red)
-                                                            .padding(.trailing, 70)
-                                                            .padding(.top, 70)
+                                                            .padding(.trailing, 75)
+                                                            .padding(.top, 75)
                                                     }
                                                 }
                                                 .onTapGesture {
@@ -256,6 +256,7 @@ struct RadioSearchView: View {
                     .resizable()
                     .frame(width: 30, height: 30)
                     .foregroundStyle(.indigo)
+                    .padding(.trailing)
                     .bold()
                     .onTapGesture {
                         withAnimation(.smooth(duration: 0.4)){
@@ -268,6 +269,7 @@ struct RadioSearchView: View {
                     .frame(width: 30, height: 30)
                     .foregroundStyle(.indigo)
                     .bold()
+                    .padding(.trailing)
                     .onTapGesture {
                         withAnimation(.smooth(duration: 0.4)){
                                            isGridView = true

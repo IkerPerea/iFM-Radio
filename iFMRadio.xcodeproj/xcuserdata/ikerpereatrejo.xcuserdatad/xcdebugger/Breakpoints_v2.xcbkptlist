@@ -34,38 +34,6 @@
             endingLineNumber = "54"
             landmarkName = "fetchRadioList()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "2356AB2E-FCF7-40DB-BEEB-F99E1714B67C - 1b705c124b89eb87"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;iFMRadio.RadioListModel&gt;, Swift.Error&gt;) -&gt; () in iFMRadio.RadioListViewModel.fetchRadioList() -&gt; ()"
-                  moduleName = "iFMRadio"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ikerpereatrejo/Desktop/Projects/iFMRadio/iFMRadio/ViewModels/RadioListViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "52"
-                  endingLineNumber = "52"
-                  offsetFromSymbolStart = "344">
-               </Location>
-               <Location
-                  uuid = "2356AB2E-FCF7-40DB-BEEB-F99E1714B67C - bc14640a8b789f13"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;iFMRadio.RadioListModel&gt;, Swift.Error&gt;) -&gt; () in iFMRadio.RadioListViewModel.fetchRadioList() async -&gt; ()"
-                  moduleName = "iFMRadio"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ikerpereatrejo/Desktop/Projects/iFMRadio/iFMRadio/ViewModels/RadioListViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "52"
-                  endingLineNumber = "52"
-                  offsetFromSymbolStart = "344">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -82,68 +50,6 @@
             endingLineNumber = "51"
             landmarkName = "fetchRadioList()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "BB58E5E1-F7C8-4751-AD59-1F772775CD54 - 1b705c124b89e864"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;iFMRadio.RadioListModel&gt;, Swift.Error&gt;) -&gt; () in iFMRadio.RadioListViewModel.fetchRadioList() -&gt; ()"
-                  moduleName = "iFMRadio"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ikerpereatrejo/Desktop/Projects/iFMRadio/iFMRadio/ViewModels/RadioListViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "49"
-                  endingLineNumber = "49"
-                  offsetFromSymbolStart = "96">
-               </Location>
-               <Location
-                  uuid = "BB58E5E1-F7C8-4751-AD59-1F772775CD54 - 1b705c124b89e864"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;iFMRadio.RadioListModel&gt;, Swift.Error&gt;) -&gt; () in iFMRadio.RadioListViewModel.fetchRadioList() -&gt; ()"
-                  moduleName = "iFMRadio"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ikerpereatrejo/Desktop/Projects/iFMRadio/iFMRadio/ViewModels/RadioListViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "49"
-                  endingLineNumber = "49"
-                  offsetFromSymbolStart = "124">
-               </Location>
-               <Location
-                  uuid = "BB58E5E1-F7C8-4751-AD59-1F772775CD54 - bc14640a8b789cf0"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;iFMRadio.RadioListModel&gt;, Swift.Error&gt;) -&gt; () in iFMRadio.RadioListViewModel.fetchRadioList() async -&gt; ()"
-                  moduleName = "iFMRadio"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ikerpereatrejo/Desktop/Projects/iFMRadio/iFMRadio/ViewModels/RadioListViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "49"
-                  endingLineNumber = "49"
-                  offsetFromSymbolStart = "96">
-               </Location>
-               <Location
-                  uuid = "BB58E5E1-F7C8-4751-AD59-1F772775CD54 - bc14640a8b789cf0"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;iFMRadio.RadioListModel&gt;, Swift.Error&gt;) -&gt; () in iFMRadio.RadioListViewModel.fetchRadioList() async -&gt; ()"
-                  moduleName = "iFMRadio"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ikerpereatrejo/Desktop/Projects/iFMRadio/iFMRadio/ViewModels/RadioListViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "49"
-                  endingLineNumber = "49"
-                  offsetFromSymbolStart = "124">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
