@@ -61,17 +61,19 @@ class RadioListViewModel: ObservableObject {
     }
     func fetchData(at url: URL, completion: @escaping (Result<[RadioListModel], Error>) -> Void) {
         URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if let error = error {
-                completion(.failure(error))
-            }
-            
-            if let data = data {
-                do {
-                    let list = try JSONDecoder().decode(Record.self, from: data)
-                    completion(.success(list.record.radios))
-                } catch let decoderError {
-                    completion(.failure(decoderError))
-                    print(decoderError.localizedDescription)
+            DispatchQueue.main.async {
+                if let error = error {
+                    completion(.failure(error))
+                }
+                
+                if let data = data {
+                    do {
+                        let list = try JSONDecoder().decode(Record.self, from: data)
+                        completion(.success(list.record.radios))
+                    } catch let decoderError {
+                        completion(.failure(decoderError))
+                        print(decoderError.localizedDescription)
+                    }
                 }
             }
         }.resume()

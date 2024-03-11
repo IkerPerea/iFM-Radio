@@ -25,12 +25,15 @@ struct RadioSearchView: View {
     var body: some View {
             NavigationStack {
                 VStack {
-                    taskHorizontalList()
+                    if isGridView {
+                        tagHorizontalList()
+                    }
                     searchBar()
                     if isGridView {
                         ScrollView {
                             radioGridList()
-                        }    
+                        }
+                        
                     } else {
                         exploreList()
                     }
@@ -47,6 +50,9 @@ struct RadioSearchView: View {
             }
             .sensoryFeedback(.increase, trigger: haptics)
             .onChange(of: searchText) { newValue in
+                withAnimation(.smooth(duration: 0.4)){
+                                   isGridView = true
+                               }
                 if newValue.isEmpty {
                     radioViewModel.searchRadioResults = radioViewModel.radioList
                 } else {
@@ -63,58 +69,108 @@ struct RadioSearchView: View {
             }
     }
     func exploreList() -> some View {
-       return NavigationStack {
+        return NavigationStack {
             ScrollView {
-                ForEach(radioViewModel.tagsList, id: \.self) { tag in
-                    VStack {
-                        HStack {
-                            Text(tag)
-                                .font(.title)
-                                .bold()
-                            Spacer()
-                        }
-                        .padding(.all)
+                if isFavoriteList {
+                    ForEach(radioViewModel.tagsList, id: \.self) { tag in
+                        VStack {
+                            HStack {
+                                Text(tag)
+                                    .font(.title)
+                                    .bold()
+                                Spacer()
+                            }
+                            .padding(.all)
                             ScrollView(.horizontal) {
                                 HStack {
                                     
-                                ForEach(radioViewModel.radioList) { radio in
-                                    if radio.tags.contains(tag) {
-                                        RoundedRectangle(cornerRadius: 20.0)
-                                            .onAppear {
-                                                radioViewModel.loadFavorites()
+                                    ForEach(radioViewModel.radioList) { radio in
+                                        if radio.isFavorite {
+                                            if radio.tags.contains(tag) {
+                                                RoundedRectangle(cornerRadius: 20.0)
+                                                    .onAppear {
+                                                        radioViewModel.loadFavorites()
+                                                    }
+                                                    .frame(width: 105, height: 110)
+                                                    .overlay {
+                                                        Image(radio.image)
+                                                            .resizable()
+                                                            .frame(width: 80, height: 80)
+                                                            .clipShape(.circle)
+                                                            .scaledToFit()
+                                                        if radio.isFavorite == true {
+                                                            Image(systemName: "heart.fill")
+                                                                .resizable()
+                                                                .scaledToFit()
+                                                                .frame(width: 16, height: 16)
+                                                                .foregroundStyle(.red)
+                                                                .padding(.trailing, 70)
+                                                                .padding(.top, 70)
+                                                        }
+                                                    }
+                                                    .onTapGesture {
+                                                        radioViewModel.onTapGesture(radio: radio)
+                                                        radioViewModel.loadFavorites()
+                                                    }
                                             }
-                                            .frame(width: 105, height: 110)
-                                            .overlay {
-                                                Image(radio.image)
-                                                    .resizable()
-                                                    .frame(width: 80, height: 80)
-                                                    .clipShape(.circle)
-                                                    .scaledToFit()
-                                                if radio.isFavorite == true {
-                                                    Image(systemName: "heart.fill")
-                                                        .resizable()
-                                                        .scaledToFit()
-                                                        .frame(width: 16, height: 16)
-                                                        .foregroundStyle(.red)
-                                                        .padding(.trailing, 70)
-                                                        .padding(.top, 70)
-                                                }
-                                            }
-                                            .onTapGesture {
-                                                radioViewModel.onTapGesture(radio: radio)
-                                                radioViewModel.loadFavorites()
-                                            }
+                                        }
                                     }
+                                    .padding(.leading, 40)
                                 }
-                                .padding(.leading, 40)
                             }
-                                .scrollIndicators(.never)
-                                .scrollIndicators(.never)
-                        }
                             .scrollIndicators(.never)
+                        }
                     }
+                } else {
+                    ForEach(radioViewModel.tagsList, id: \.self) { tag in
+                        VStack {
+                            HStack {
+                                Text(tag)
+                                    .font(.title)
+                                    .bold()
+                                Spacer()
+                            }
+                            .padding(.all)
+                            ScrollView(.horizontal) {
+                                HStack {
+                                    
+                                    ForEach(radioViewModel.radioList) { radio in
+                                        if radio.tags.contains(tag) {
+                                            RoundedRectangle(cornerRadius: 20.0)
+                                                .onAppear {
+                                                    radioViewModel.loadFavorites()
+                                                }
+                                                .frame(width: 105, height: 110)
+                                                .overlay {
+                                                    Image(radio.image)
+                                                        .resizable()
+                                                        .frame(width: 80, height: 80)
+                                                        .clipShape(.circle)
+                                                        .scaledToFit()
+                                                    if radio.isFavorite == true {
+                                                        Image(systemName: "heart.fill")
+                                                            .resizable()
+                                                            .scaledToFit()
+                                                            .frame(width: 16, height: 16)
+                                                            .foregroundStyle(.red)
+                                                            .padding(.trailing, 70)
+                                                            .padding(.top, 70)
+                                                    }
+                                                }
+                                                .onTapGesture {
+                                                    radioViewModel.onTapGesture(radio: radio)
+                                                    radioViewModel.loadFavorites()
+                                                }
+                                        }
+                                    }
+                                    .padding(.leading, 40)
+                                }
+                            }
+                            .scrollIndicators(.never)
+                        }
                     }
                 }
+            }
             Spacer()
         }
     }
@@ -173,7 +229,9 @@ struct RadioSearchView: View {
                     .bold()
                     .onTapGesture {
                             radioViewModel.searchRadioResults = radioViewModel.radioList
-                            isFavoriteList = false
+                        withAnimation(.smooth(duration: 0.4)){
+                                           isFavoriteList = false
+                                       }
                     }
             } else {
                 Image(systemName: "star.circle")
@@ -182,7 +240,9 @@ struct RadioSearchView: View {
                     .foregroundStyle(.indigo)
                     .bold()
                     .onTapGesture {
-                            isFavoriteList = true
+                        withAnimation(.smooth(duration: 0.4)){
+                                           isFavoriteList = true
+                                       }
                             radioViewModel.searchRadioResults = []
                             radioViewModel.radioList.forEach { radio in
                                 if radio.isFavorite {
@@ -198,7 +258,9 @@ struct RadioSearchView: View {
                     .foregroundStyle(.indigo)
                     .bold()
                     .onTapGesture {
-                        isGridView = false
+                        withAnimation(.smooth(duration: 0.4)){
+                                           isGridView = false
+                                       }
                     }
             } else {
                 Image(systemName: "square.grid.2x2")
@@ -207,12 +269,14 @@ struct RadioSearchView: View {
                     .foregroundStyle(.indigo)
                     .bold()
                     .onTapGesture {
-                        isGridView = true
+                        withAnimation(.smooth(duration: 0.4)){
+                                           isGridView = true
+                                       }
                     }
             }
         }
     }
-    fileprivate func taskHorizontalList() -> some View {
+    fileprivate func tagHorizontalList() -> some View {
         return VStack {
             ScrollView(.horizontal) {
                     HStack {
