@@ -15,6 +15,7 @@ struct RadioSearchView: View {
     @State var searchText: String = ""
     @State var isFavoriteList: Bool = false
     @State var haptics: Bool = false
+    @State var isGridView: Bool = false
     private let adaptiveColumn = [
            GridItem(.adaptive(minimum: 150))
        ]
@@ -26,15 +27,23 @@ struct RadioSearchView: View {
                 VStack {
                     taskHorizontalList()
                     searchBar()
-                    ScrollView {
-                        radioGridList()
+                    if isGridView {
+                        ScrollView {
+                            radioGridList()
+                        }    
+                    } else {
+                        exploreList()
                     }
                     controls()
                 }
                 .padding(.bottom)
+                .navigationTitle("iFM Radio")
             }
             .onChange(of: radioViewModel.radioList) {
                 radioViewModel.filterRadioList()
+            }
+            .onAppear {
+                radioViewModel.onAppear()
             }
             .sensoryFeedback(.increase, trigger: haptics)
             .onChange(of: searchText) { newValue in
@@ -52,6 +61,62 @@ struct RadioSearchView: View {
             .sheet(isPresented: $isPresenting) {
                 MusicPlayerView(radioViewModel: radioViewModel)
             }
+    }
+    func exploreList() -> some View {
+       return NavigationStack {
+            ScrollView {
+                ForEach(radioViewModel.tagsList, id: \.self) { tag in
+                    VStack {
+                        HStack {
+                            Text(tag)
+                                .font(.title)
+                                .bold()
+                            Spacer()
+                        }
+                        .padding(.all)
+                            ScrollView(.horizontal) {
+                                HStack {
+                                    
+                                ForEach(radioViewModel.radioList) { radio in
+                                    if radio.tags.contains(tag) {
+                                        RoundedRectangle(cornerRadius: 20.0)
+                                            .onAppear {
+                                                radioViewModel.loadFavorites()
+                                            }
+                                            .frame(width: 105, height: 110)
+                                            .overlay {
+                                                Image(radio.image)
+                                                    .resizable()
+                                                    .frame(width: 80, height: 80)
+                                                    .clipShape(.circle)
+                                                    .scaledToFit()
+                                                if radio.isFavorite == true {
+                                                    Image(systemName: "heart.fill")
+                                                        .resizable()
+                                                        .scaledToFit()
+                                                        .frame(width: 16, height: 16)
+                                                        .foregroundStyle(.red)
+                                                        .padding(.trailing, 70)
+                                                        .padding(.top, 70)
+                                                }
+                                            }
+                                            .onTapGesture {
+                                                radioViewModel.onTapGesture(radio: radio)
+                                                radioViewModel.loadFavorites()
+                                            }
+                                    }
+                                }
+                                .padding(.leading, 40)
+                            }
+                                .scrollIndicators(.never)
+                                .scrollIndicators(.never)
+                        }
+                            .scrollIndicators(.never)
+                    }
+                    }
+                }
+            Spacer()
+        }
     }
     fileprivate func radioGridList() -> some View {
         return LazyVGrid(columns: adaptiveColumn, spacing: 20) {
@@ -106,7 +171,6 @@ struct RadioSearchView: View {
                     .frame(width: 30, height: 30)
                     .foregroundStyle(.indigo)
                     .bold()
-                    .padding(.trailing)
                     .onTapGesture {
                             radioViewModel.searchRadioResults = radioViewModel.radioList
                             isFavoriteList = false
@@ -117,7 +181,6 @@ struct RadioSearchView: View {
                     .frame(width: 30, height: 30)
                     .foregroundStyle(.indigo)
                     .bold()
-                    .padding(.trailing)
                     .onTapGesture {
                             isFavoriteList = true
                             radioViewModel.searchRadioResults = []
@@ -126,6 +189,25 @@ struct RadioSearchView: View {
                                     radioViewModel.searchRadioResults.append(radio)
                                 }
                             }
+                    }
+            }
+            if isGridView {
+                Image(systemName: "square.grid.2x2.fill")
+                    .resizable()
+                    .frame(width: 30, height: 30)
+                    .foregroundStyle(.indigo)
+                    .bold()
+                    .onTapGesture {
+                        isGridView = false
+                    }
+            } else {
+                Image(systemName: "square.grid.2x2")
+                    .resizable()
+                    .frame(width: 30, height: 30)
+                    .foregroundStyle(.indigo)
+                    .bold()
+                    .onTapGesture {
+                        isGridView = true
                     }
             }
         }

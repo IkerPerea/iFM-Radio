@@ -7,13 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D10ED0DD2B9DEB29003F502F /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10ED0DC2B9DEB29003F502F /* ExploreView.swift */; };
-		E50EF8492B93C1E300B23E4C /* AudioStreaming in Frameworks */ = {isa = PBXBuildFile; productRef = E50EF8482B93C1E300B23E4C /* AudioStreaming */; };
 		E50EF84E2B94AF7400B23E4C /* MusicPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50EF84D2B94AF7400B23E4C /* MusicPlayerView.swift */; };
 		E50EF8502B94CA5900B23E4C /* TimerSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50EF84F2B94CA5900B23E4C /* TimerSheetView.swift */; };
 		E50EF8522B951CC700B23E4C /* radioList.json in Resources */ = {isa = PBXBuildFile; fileRef = E50EF8512B951CC700B23E4C /* radioList.json */; };
 		E57168A72B9D144D00E92B9C /* TagRadioListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57168A62B9D144D00E92B9C /* TagRadioListView.swift */; };
 		E57168A92B9DD6D500E92B9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E57168A82B9DD6D500E92B9C /* LaunchScreen.storyboard */; };
+		E5F115142B9F415700C46E4A /* AudioStreaming in Frameworks */ = {isa = PBXBuildFile; productRef = E5F115132B9F415700C46E4A /* AudioStreaming */; };
 		E5F8C7CF2B93AF8500516FC8 /* iFMRadioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F8C7CE2B93AF8500516FC8 /* iFMRadioApp.swift */; };
 		E5F8C7D12B93AF8500516FC8 /* RadioSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F8C7D02B93AF8500516FC8 /* RadioSearchView.swift */; };
 		E5F8C7D32B93AF8700516FC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5F8C7D22B93AF8700516FC8 /* Assets.xcassets */; };
@@ -23,7 +22,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D10ED0DC2B9DEB29003F502F /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
 		E50EF84A2B93E5A800B23E4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E50EF84D2B94AF7400B23E4C /* MusicPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerView.swift; sourceTree = "<group>"; };
 		E50EF84F2B94CA5900B23E4C /* TimerSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerSheetView.swift; sourceTree = "<group>"; };
@@ -44,7 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E50EF8492B93C1E300B23E4C /* AudioStreaming in Frameworks */,
+				E5F115142B9F415700C46E4A /* AudioStreaming in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,7 +92,6 @@
 			isa = PBXGroup;
 			children = (
 				E5F8C7D02B93AF8500516FC8 /* RadioSearchView.swift */,
-				D10ED0DC2B9DEB29003F502F /* ExploreView.swift */,
 				E57168A82B9DD6D500E92B9C /* LaunchScreen.storyboard */,
 				E57168A62B9D144D00E92B9C /* TagRadioListView.swift */,
 				E50EF84F2B94CA5900B23E4C /* TimerSheetView.swift */,
@@ -136,7 +133,7 @@
 			);
 			name = iFMRadio;
 			packageProductDependencies = (
-				E50EF8482B93C1E300B23E4C /* AudioStreaming */,
+				E5F115132B9F415700C46E4A /* AudioStreaming */,
 			);
 			productName = iFMRadio;
 			productReference = E5F8C7CB2B93AF8400516FC8 /* iFMRadio.app */;
@@ -167,7 +164,7 @@
 			);
 			mainGroup = E5F8C7C22B93AF8400516FC8;
 			packageReferences = (
-				E50EF8472B93C1E300B23E4C /* XCRemoteSwiftPackageReference "AudioStreaming" */,
+				E5F115122B9F415700C46E4A /* XCRemoteSwiftPackageReference "AudioStreaming" */,
 			);
 			productRefGroup = E5F8C7CC2B93AF8400516FC8 /* Products */;
 			projectDirPath = "";
@@ -203,7 +200,6 @@
 				E5F8C7CF2B93AF8500516FC8 /* iFMRadioApp.swift in Sources */,
 				E5F8C7DF2B93B38B00516FC8 /* RadioListViewModel.swift in Sources */,
 				E50EF8502B94CA5900B23E4C /* TimerSheetView.swift in Sources */,
-				D10ED0DD2B9DEB29003F502F /* ExploreView.swift in Sources */,
 				E5F8C7E22B93B65B00516FC8 /* RadioListModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -418,20 +414,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		E50EF8472B93C1E300B23E4C /* XCRemoteSwiftPackageReference "AudioStreaming" */ = {
+		E5F115122B9F415700C46E4A /* XCRemoteSwiftPackageReference "AudioStreaming" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/dimitris-c/AudioStreaming";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
+				kind = exactVersion;
+				version = 1.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		E50EF8482B93C1E300B23E4C /* AudioStreaming */ = {
+		E5F115132B9F415700C46E4A /* AudioStreaming */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = E50EF8472B93C1E300B23E4C /* XCRemoteSwiftPackageReference "AudioStreaming" */;
+			package = E5F115122B9F415700C46E4A /* XCRemoteSwiftPackageReference "AudioStreaming" */;
 			productName = AudioStreaming;
 		};
 /* End XCSwiftPackageProductDependency section */
