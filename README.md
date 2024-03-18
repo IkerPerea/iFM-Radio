@@ -2,7 +2,7 @@
 This is an app developed by a 15 year old teenager using Swift / SwiftUI and Xcode 15.
 My name is Iker and I code everyday so I can archive my dream: being a professional developer.
 (I would like to work as a **iOS Developer** in a future.) 💻📲
-**Who knows**, maybe nex year I win the **Swift Student Challenge**. 
+**Who knows**, maybe next year I win the **Swift Student Challenge**. 
 
 **Features:**
 - JSON Decoding and fetching from a server (stored at: jsonbin.io) 🛜
