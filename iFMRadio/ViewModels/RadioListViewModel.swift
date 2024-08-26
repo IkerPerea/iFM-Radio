@@ -52,7 +52,7 @@ class RadioListViewModel: ObservableObject {
                 self.radioList = finalRadioList
                 self.searchRadioResults = self.radioList
                 self.loadFavorites()
-                print("Sucess")
+                print("Success")
             case .failure(let error):
                 print(error.localizedDescription)
             }

@@ -17,56 +17,56 @@ struct RadioSearchView: View {
     @State var haptics: Bool = false
     @State var isGridView: Bool = false
     private let adaptiveColumn = [
-           GridItem(.adaptive(minimum: 150))
-       ]
+        GridItem(.adaptive(minimum: 150))
+    ]
     let columns = [
-            GridItem(.adaptive(minimum: 100))
-        ]
+        GridItem(.adaptive(minimum: 100))
+    ]
     var body: some View {
-            NavigationStack {
-                VStack {
-                    if isGridView {
-                        tagHorizontalList()
-                    }
-                    searchBar()
-                    if isGridView {
-                        ScrollView {
-                            radioGridList()
-                        }
-                        
-                    } else {
-                        exploreList()
-                    }
-                    controls()
+        NavigationStack {
+            VStack {
+                if isGridView {
+                    tagHorizontalList()
                 }
-                .padding(.bottom)
-                .navigationTitle("iFM Radio")
-            }
-            .onChange(of: radioViewModel.radioList) {
-                radioViewModel.filterRadioList()
-            }
-            .onAppear {
-                radioViewModel.onAppear()
-            }
-            .sensoryFeedback(.increase, trigger: haptics)
-            .onChange(of: searchText) { newValue in
-                withAnimation(.smooth(duration: 0.4)){
-                                   isGridView = true
-                               }
-                if newValue.isEmpty {
-                    radioViewModel.searchRadioResults = radioViewModel.radioList
+                searchBar()
+                if isGridView {
+                    ScrollView {
+                        radioGridList()
+                    }
+                    
                 } else {
-                    radioViewModel.searchRadioResults = radioViewModel.radioList.filter { note in
-                        note.title.contains(newValue)
-                    }
+                    exploreList()
+                }
+                controls()
+            }
+            .padding(.bottom)
+            .navigationTitle("iFM Radio")
+        }
+        .onChange(of: radioViewModel.radioList) {
+            radioViewModel.filterRadioList()
+        }
+        .onAppear {
+            radioViewModel.onAppear()
+        }
+        .sensoryFeedback(.increase, trigger: haptics)
+        .onChange(of: searchText) { newValue in
+            withAnimation(.smooth(duration: 0.4)){
+                isGridView = true
+            }
+            if newValue.isEmpty {
+                radioViewModel.searchRadioResults = radioViewModel.radioList
+            } else {
+                radioViewModel.searchRadioResults = radioViewModel.radioList.filter { note in
+                    note.title.contains(newValue)
                 }
             }
-            .onDisappear {
-                radioViewModel.onDissapear()
-            }
-            .sheet(isPresented: $isPresenting) {
-                MusicPlayerView(radioViewModel: radioViewModel)
-            }
+        }
+        .onDisappear {
+            radioViewModel.onDissapear()
+        }
+        .sheet(isPresented: $isPresenting) {
+            MusicPlayerView(radioViewModel: radioViewModel)
+        }
     }
     func exploreList() -> some View {
         return NavigationStack {
@@ -176,35 +176,35 @@ struct RadioSearchView: View {
     }
     fileprivate func radioGridList() -> some View {
         return LazyVGrid(columns: adaptiveColumn, spacing: 20) {
-                ForEach(radioViewModel.searchRadioResults) { radio in
-                    RoundedRectangle(cornerRadius: 20.0)
-                        .onAppear {
-                            radioViewModel.loadFavorites()
-                        }
-                        .frame(width: 155, height: 160)
-                        .overlay {
-                            Image(radio.image)
+            ForEach(radioViewModel.searchRadioResults) { radio in
+                RoundedRectangle(cornerRadius: 20.0)
+                    .onAppear {
+                        radioViewModel.loadFavorites()
+                    }
+                    .frame(width: 155, height: 160)
+                    .overlay {
+                        Image(radio.image)
+                            .resizable()
+                            .frame(width: 130, height: 130)
+                            .clipShape(.circle)
+                            .scaledToFit()
+                        if radio.isFavorite == true {
+                            Image(systemName: "heart.fill")
                                 .resizable()
-                                .frame(width: 130, height: 130)
-                                .clipShape(.circle)
                                 .scaledToFit()
-                            if radio.isFavorite == true {
-                                Image(systemName: "heart.fill")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 20, height: 20)
-                                    .foregroundStyle(.red)
-                                    .padding(.trailing, 120)
-                                    .padding(.top, 120)
-                            }
+                                .frame(width: 20, height: 20)
+                                .foregroundStyle(.red)
+                                .padding(.trailing, 120)
+                                .padding(.top, 120)
                         }
-                        .onTapGesture {
-                            radioViewModel.onTapGesture(radio: radio)
-                            radioViewModel.loadFavorites()
-                            haptics.toggle()
-                        }
-                }
+                    }
+                    .onTapGesture {
+                        radioViewModel.onTapGesture(radio: radio)
+                        radioViewModel.loadFavorites()
+                        haptics.toggle()
+                    }
             }
+        }
         
     }
     fileprivate func searchBar() -> some View {
@@ -228,10 +228,10 @@ struct RadioSearchView: View {
                     .foregroundStyle(.indigo)
                     .bold()
                     .onTapGesture {
-                            radioViewModel.searchRadioResults = radioViewModel.radioList
+                        radioViewModel.searchRadioResults = radioViewModel.radioList
                         withAnimation(.smooth(duration: 0.4)){
-                                           isFavoriteList = false
-                                       }
+                            isFavoriteList = false
+                        }
                     }
             } else {
                 Image(systemName: "star.circle")
@@ -241,14 +241,14 @@ struct RadioSearchView: View {
                     .bold()
                     .onTapGesture {
                         withAnimation(.smooth(duration: 0.4)){
-                                           isFavoriteList = true
-                                       }
-                            radioViewModel.searchRadioResults = []
-                            radioViewModel.radioList.forEach { radio in
-                                if radio.isFavorite {
-                                    radioViewModel.searchRadioResults.append(radio)
-                                }
+                            isFavoriteList = true
+                        }
+                        radioViewModel.searchRadioResults = []
+                        radioViewModel.radioList.forEach { radio in
+                            if radio.isFavorite {
+                                radioViewModel.searchRadioResults.append(radio)
                             }
+                        }
                     }
             }
             if isGridView {
@@ -260,8 +260,8 @@ struct RadioSearchView: View {
                     .bold()
                     .onTapGesture {
                         withAnimation(.smooth(duration: 0.4)){
-                                           isGridView = false
-                                       }
+                            isGridView = false
+                        }
                     }
             } else {
                 Image(systemName: "square.grid.2x2")
@@ -272,8 +272,8 @@ struct RadioSearchView: View {
                     .padding(.trailing)
                     .onTapGesture {
                         withAnimation(.smooth(duration: 0.4)){
-                                           isGridView = true
-                                       }
+                            isGridView = true
+                        }
                     }
             }
         }
@@ -281,84 +281,84 @@ struct RadioSearchView: View {
     fileprivate func tagHorizontalList() -> some View {
         return VStack {
             ScrollView(.horizontal) {
-                    HStack {
-                        ForEach(radioViewModel.tagsList, id: \.self) { tag in
-                            NavigationLink(destination: TagRadioListView(tag: tag, radioViewModel: radioViewModel)) {
-                                if tag == "Music" {
-                                    Image(systemName: "music.note")
-                                } else if tag == "Sports" {
-                                    Image(systemName: "soccerball")
-                                } else if tag == "English" {
-                                    Image(systemName: "person.2.wave.2")
-                                } else if tag == "News" {
-                                    Image(systemName: "newspaper")
-                                }
-                                Text(tag)
+                HStack {
+                    ForEach(radioViewModel.tagsList, id: \.self) { tag in
+                        NavigationLink(destination: TagRadioListView(tag: tag, radioViewModel: radioViewModel)) {
+                            if tag == "Music" {
+                                Image(systemName: "music.note")
+                            } else if tag == "Sports" {
+                                Image(systemName: "soccerball")
+                            } else if tag == "English" {
+                                Image(systemName: "person.2.wave.2")
+                            } else if tag == "News" {
+                                Image(systemName: "newspaper")
                             }
-                            .buttonStyle(.bordered)
-                            .foregroundStyle(.indigo)
+                            Text(tag)
                         }
-                        
+                        .buttonStyle(.bordered)
+                        .foregroundStyle(.indigo)
                     }
+                    
                 }
-                .scrollIndicators(.hidden)
-                .padding(.leading)
+            }
+            .scrollIndicators(.hidden)
+            .padding(.leading)
             .padding(.trailing)
         }
         
     }
     fileprivate func controls() -> some View {
         return VStack {
-                        HStack {
-                            Image(radioViewModel.playingRadio.image)
-                                .resizable()
-                                .frame(width: 40, height: 40)
-                                .clipShape(.circle)
-                                .padding([.leading, .trailing])
-                            Text("\(radioViewModel.playingRadio.title)")
-                                .padding(.all)
-                                .foregroundStyle(.indigo)
-                                .underline()
-                                .bold()
-                                .padding(.trailing, 25)
-                            Image(systemName: "chevron.up")
-                                .resizable()
-                                .frame(width: 20, height: 10)
-                                .padding(.all)
-                                .foregroundStyle(.indigo)
-                                .bold()
-                                .onTapGesture {
-                                    isPresenting = true
-                                }
-                            Button {
-                                if radioViewModel.isPlaying {
-                                    radioViewModel.pause()
-                                    haptics.toggle()
-                                } else {
-                                    radioViewModel.resume()
-                                    haptics.toggle()
-                                }
-                            } label: {
-                                if radioViewModel.isPlaying {
-                                        Image(systemName: "pause.circle.fill")
-                                            .resizable()
-                                            .scaledToFill()
-                                            .frame(width: 50, height: 50)
-                                            .tint(.indigo)
-                                    } else {
-                                        Image(systemName: "play.circle.fill")
-                                            .resizable()
-                                            .scaledToFill()
-                                            .frame(width: 50, height: 50)
-                                            .tint(.indigo)
-                                }
-                            }
-                            .padding(.trailing)
-                        }
+            HStack {
+                Image(radioViewModel.playingRadio.image)
+                    .resizable()
+                    .frame(width: 40, height: 40)
+                    .clipShape(.circle)
+                    .padding([.leading, .trailing])
+                Text("\(radioViewModel.playingRadio.title)")
+                    .padding(.all)
+                    .foregroundStyle(.indigo)
+                    .underline()
+                    .bold()
+                    .padding(.trailing, 25)
+                Image(systemName: "chevron.up")
+                    .resizable()
+                    .frame(width: 20, height: 10)
+                    .padding(.all)
+                    .foregroundStyle(.indigo)
+                    .bold()
+                    .onTapGesture {
+                        isPresenting = true
+                    }
+                Button {
+                    if radioViewModel.isPlaying {
+                        radioViewModel.pause()
+                        haptics.toggle()
+                    } else {
+                        radioViewModel.resume()
+                        haptics.toggle()
+                    }
+                } label: {
+                    if radioViewModel.isPlaying {
+                        Image(systemName: "pause.circle.fill")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 50, height: 50)
+                            .tint(.indigo)
+                    } else {
+                        Image(systemName: "play.circle.fill")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 50, height: 50)
+                            .tint(.indigo)
+                    }
+                }
+                .padding(.trailing)
+            }
         }
         
     }
-
+    
 }
 
 #Preview {
